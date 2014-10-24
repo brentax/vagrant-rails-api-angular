@@ -55,6 +55,12 @@ package { 'phantomjs':
   require => Package['nodejs'],
 }
 
+package { 'generator-angular':
+  ensure   => present,
+  provider => 'npm',
+  require => Package['nodejs'],
+}
+
 
 
 class install_postgres {

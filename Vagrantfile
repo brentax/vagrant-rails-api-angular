@@ -13,6 +13,13 @@ SCRIPT
 
   config.vm.provision :shell, :inline => $puppet_update_script
 
+  $node_symlink_script = <<SCRIPT
+mkdir /tmp/node_modules
+ln -s /tmp/node_modules /vagrant/frontend/node_modules
+SCRIPT
+
+  config.vm.provision :shell, :inline => $node_symlink_script
+
   config.vm.provision :puppet,
     :manifests_path => 'puppet/manifests',
     :module_path    => 'puppet/modules'
