@@ -3,6 +3,9 @@ Vagrant::Config.run do |config|
   config.vm.box_url   = 'http://files.vagrantup.com/precise32.box'
   config.vm.host_name = 'abc'
 
+  config.vm.forward_port 3000, 3000
+  config.vm.forward_port 9000, 9000
+
   # Update puppet to version 3.2.2 before using puppet provisioning.
   $puppet_update_script = <<SCRIPT
 wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
