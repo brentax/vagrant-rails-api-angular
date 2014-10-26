@@ -63,6 +63,15 @@ module.exports = function (grunt) {
       }
     },
 
+    shell: {
+      startRailsServer: {
+        command: 'rails server -b 0.0.0.0',
+        options: {
+          async: true
+        }
+      }
+    },
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -430,6 +439,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'shell:startRailsServer',
       'autoprefixer',
       'configureProxies',
       'connect:livereload',
